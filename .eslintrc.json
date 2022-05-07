@@ -4,13 +4,16 @@
     "es2021": true,
     "node": true
   },
-  "extends": ["airbnb-base", "plugin:prettier/recommended"],
+  "extends": ["plugin:react/recommended", "airbnb", "prettier"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint"],
+  "plugins": ["react", "@typescript-eslint"],
   "settings": {
     "import/resolver": {
       "node": {
@@ -21,6 +24,25 @@
   "rules": {
     "class-methods-use-this": ["off"],
     "max-classes-per-file": ["off"],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
+    "no-use-before-define": "off",
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "@typescript-eslint/no-use-before-define": "off",
+    "import/prefer-default-export": "off",
+    "indent": "off",
+    "func-names": "off",
+    "arrow-body-style": "off",
+    "react/style-prop-object": "off",
+    "global-require": "off",
+
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+
     "no-console": [
       "error",
       {
@@ -34,6 +56,7 @@
         ]
       }
     ],
+
     "import/order": [
       "error",
       {
@@ -51,6 +74,7 @@
         ]
       }
     ],
+
     "import/extensions": [
       "error",
       "ignorePackages",
@@ -60,9 +84,6 @@
         "ts": "never",
         "tsx": "never"
       }
-    ],
-    "import/prefer-default-export": "off",
-    "indent": "off",
-    "func-names": "off"
+    ]
   }
 }

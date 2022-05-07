@@ -1,25 +1,21 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text } from 'react-native';
-import styled from 'styled-components/native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 import { useFonts } from './hooks/useFonts';
+import { Navigation } from './navigation/Navigation';
 
-const MainContainer = styled.View`
-  flex: 1;
-  background-color: #fff;
-  align-items: center;
-  justify-content: center;
-`;
-
-export default function App() {
+const App = () => {
   const isLoaded = useFonts();
 
   if (!isLoaded) return null;
 
   return (
-    <MainContainer>
-      <Text>Open up App.tsx to start working on your app!</Text>
+    <SafeAreaProvider>
+      <Navigation />
       <StatusBar style="auto" />
-    </MainContainer>
+    </SafeAreaProvider>
   );
-}
+};
+
+export default App;
